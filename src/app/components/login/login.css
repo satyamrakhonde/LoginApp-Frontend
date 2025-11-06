@@ -1,0 +1,5 @@
+.error { color: red; }
+
+form { max-width: 420px; margin: 20px; }
+input { display:block; margin-bottom:8px; width:100%; padding:6px; }
+button { margin-right:8px; }
