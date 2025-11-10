@@ -1,1 +1,60 @@
 <p>create-user works!</p>
+<div>
+    <h2>Create New User</h2>
+    <form [formGroup]="regForm" (ngSubmit)="onCreate()">
+        <div class="form-row">
+            <label>Username</label>
+            <input formControlName="username" id="username" type="text" />
+            <div *ngIf="f.username.touched && f.username.invalid" class="field-error">
+                <div *ngIf="f.username.errors?.['required']">Username is required</div>
+                <div *ngIf="f.username.errors?.['pattern']">Username should have only letters and minimum of 8 characters</div>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <label>Password</label>
+            <input formControlName="password" id="password" type="password" />
+            <div *ngIf="f.password.touched && f.password.invalid" class="field-error">
+                <div *ngIf="f.password.errors?.['required']">Password is required</div>
+                <div *ngIf="f.password.errors?.['minlength']">Password should have 8 characters minimum</div>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <label>First Name</label>
+            <input formControlName="firstName" type="text"/>
+        </div>
+
+        <div class="form-row">
+            <label>Last Name</label>
+            <input formControlName="lastName" type="text" />
+        </div>
+
+        <div class="form-row">
+            <label>Age</label>
+            <input formControlName="age" type="number" />   
+        </div>
+
+        <div class="form-row">
+            <label>Email</label>
+            <input formControlName="email" type="email" />  
+        </div>
+
+        <div class="form-row">
+            <label>Address</label>
+            <textarea formControlName="address"></textarea> 
+        </div>
+
+        <div class="form-row">
+            <label>Phone</label>
+            <input formControlName="phone" type="text" />
+        </div>
+
+        <div *ngIf="serverErrors" class="error">{{ serverErrors }}</div>
+
+        <button type="submit" [disabled]="loading">Create</button>
+        <button type="button" (click)="onReturn()">Return</button>
+        <button type="button" (click)="onCancel()">Cancel</button>
+
+    </form>
+</div>
