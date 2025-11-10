@@ -8,16 +8,16 @@
         <button type="submit" [disabled]="loading">Search</button>
     </form>
 
-    <div *ngIf="message" class="error">{{ message }}</div>
+    <div *ngIf="!foundUser && message" class="error">{{ message }}</div>
 
-    <div>
-        <!-- <h3>User Details</h3>
-        <div>Username: {{ foundUser.username}}</div>
-        <div>First name: {{ foundUser.firstName}}</div>
-        <div>Last name: {{ foundUser.lastName}}</div>
-        <div>Age: {{ foundUser.age}}</div>
-        <div>Email: {{ foundUser.email}}</div>  
-        <div>Address: {{ foundUser.address}}</div>
-        <div>Phone: {{ foundUser.phone}}</div> -->
+    <div *ngIf="foundUser">
+        <h3>User Details</h3>
+        <div>Username: {{ foundUser?.username}}</div>
+        <div>First name: {{ foundUser?.firstName}}</div>
+        <div>Last name: {{ foundUser?.lastName}}</div>
+        <div>Age: {{ foundUser?.age}}</div>
+        <div>Email: {{ foundUser?.email}}</div>  
+        <div>Address: {{ foundUser?.address}}</div>
+        <div>Phone: {{ foundUser?.phone}}</div>
     </div>
 </div>
