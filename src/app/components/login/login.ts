@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 // import { UserService } from '../../services/user.service';
 import { Router } from '@angular/router';
+import { UserService } from '../../service/services/user';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +16,7 @@ export class Login {
   submitted = false;
   errorMessage = '';
 
-  constructor(private fb: FormBuilder, private router: Router) {
+  constructor(private fb: FormBuilder, private router: Router, private userService: UserService) {
     this.form = this.fb.group({
       username: ['', Validators.required],
       password: ['', Validators.required]
