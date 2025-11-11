@@ -3,10 +3,11 @@ import { Component } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../../service/services/auth-service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-create-user',
-  imports: [ ReactiveFormsModule ],
+  imports: [ ReactiveFormsModule, CommonModule ],
   templateUrl: './create-user.html',
   styleUrl: './create-user.css',
 })

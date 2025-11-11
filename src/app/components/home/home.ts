@@ -4,10 +4,11 @@ import { User } from '../../models/user.model';
 import { error } from 'console';
 import { HttpErrorResponse } from '@angular/common/http';
 import { UserService } from '../../service/services/user';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-home',
-  imports: [ɵInternalFormsSharedModule],
+  imports: [ɵInternalFormsSharedModule, CommonModule],
   templateUrl: './home.html',
   styleUrl: './home.css',
 })

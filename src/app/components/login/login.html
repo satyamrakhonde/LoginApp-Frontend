@@ -4,13 +4,13 @@
     <label>Username</label>
     <input formControlName="username" placeholder="Enter username" />
     <!-- Show Enter valid credentials when empty & attempted submit -->
-    <div  class="error">Enter valid credentials</div>
+    <div *ngIf="submitted && f['username'].errors" class="error">Enter valid credentials</div>
   </div>
 
   <div>
     <label>Password</label>
     <input type="password" formControlName="password" placeholder="Enter password" />
-    <div  class="error">Enter valid credentials</div>
+    <div *ngIf="submitted && f['password'].errors" class="error">Enter valid credentials</div>
   </div>
 
   <div  class="error" style="margin-bottom:8px">{{ errorMessage }}</div>

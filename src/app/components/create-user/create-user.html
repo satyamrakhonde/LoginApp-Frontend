@@ -5,18 +5,18 @@
         <div class="form-row">
             <label>Username</label>
             <input formControlName="username" id="username" type="text" />
-            <div *ngIf="f.username.touched && f.username.invalid" class="field-error">
-                <div *ngIf="f.username.errors?.['required']">Username is required</div>
-                <div *ngIf="f.username.errors?.['pattern']">Username should have only letters and minimum of 8 characters</div>
+            <div *ngIf="f['username'].touched && f['username'].invalid" class="field-error">
+                <div *ngIf="f['username'].errors?.['required']">Username is required</div>
+                <div *ngIf="f['username'].errors?.['pattern']">Username should have only letters and minimum of 8 characters</div>
             </div>
         </div>
 
         <div class="form-row">
             <label>Password</label>
             <input formControlName="password" id="password" type="password" />
-            <div *ngIf="f.password.touched && f.password.invalid" class="field-error">
-                <div *ngIf="f.password.errors?.['required']">Password is required</div>
-                <div *ngIf="f.password.errors?.['minlength']">Password should have 8 characters minimum</div>
+            <div *ngIf="f['password'].touched && f['password'].invalid" class="field-error">
+                <div *ngIf="f['password'].errors?.['required']">Password is required</div>
+                <div *ngIf="f['password'].errors?.['minlength']">Password should have 8 characters minimum</div>
             </div>
         </div>
 
