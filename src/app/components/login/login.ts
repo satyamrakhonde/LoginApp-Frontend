@@ -35,17 +35,17 @@ export class Login {
     }
 
     const { username, password } = this.form.value;
-    // this.userService.login({ username, password }).subscribe({
-    //   next: (res) => {
-    //     // successful login -> navigate to home
-    //     this.router.navigate(['/home']);
-    //   },
-    //   error: (err) => {
-    //     if (err.status === 404) this.errorMessage = 'User does not exists';
-    //     else if (err.status === 401) this.errorMessage = 'Invalid credentials';
-    //     else this.errorMessage = (err.error && typeof err.error === 'string') ? err.error : 'Error logging in';
-    //   }
-    // });
+    this.userService.login({ username, password }).subscribe({
+      next: (res) => {
+        // successful login -> navigate to home
+        this.router.navigate(['/home']);
+      },
+      error: (err) => {
+        if (err.status === 404) this.errorMessage = 'User does not exists';
+        else if (err.status === 401) this.errorMessage = 'Invalid credentials';
+        else this.errorMessage = (err.error && typeof err.error === 'string') ? err.error : 'Error logging in';
+      }
+    });
   }
 
   onCreate() {
