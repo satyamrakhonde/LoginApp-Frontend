@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angula
 import { Router } from '@angular/router';
 import { UserService } from '../../service/services/user';
 import { CommonModule } from '@angular/common';
+import { AuthService } from '../../service/services/auth-service';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +18,7 @@ export class Login {
   submitted = false;
   errorMessage = '';
 
-  constructor(private fb: FormBuilder, private router: Router, private userService: UserService) {
+  constructor(private fb: FormBuilder, private router: Router, private authService: AuthService, private userService: UserService) {
     this.form = this.fb.group({
       username: ['', Validators.required],
       password: ['', Validators.required]
@@ -37,7 +38,7 @@ export class Login {
     }
 
     const { username, password } = this.form.value;
-    this.userService.login({ username, password }).subscribe({
+    this.authService.login(username, password).subscribe({
       next: (res) => {
         // successful login -> navigate to home
         this.router.navigate(['/home']);

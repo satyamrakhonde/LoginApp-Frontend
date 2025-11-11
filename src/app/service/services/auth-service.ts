@@ -8,12 +8,12 @@ import { environment } from '../../../environments/environment';
   providedIn: 'root',
 })
 export class AuthService {
-   private base = `${environment.apiBase}/auth`;
+   private base = `${environment.apiBase}`;
 
   constructor(private http: HttpClient) {}
 
   login(username: string, password: string): Observable<User> {
-    const url = `${this.base}/login`;
+    const url = `${this.base}/auth/login`;
     return this.http.post<User>(url, { username, password }).pipe(
       catchError((err: HttpErrorResponse) => {
         return throwError(() => err);
@@ -22,7 +22,7 @@ export class AuthService {
   }
 
   register(user: User): Observable<any> {
-    const url = `${this.base}/register`;
+    const url = `${this.base}/users`;
     return this.http.post(url, user, { observe: 'response' }).pipe(
       map(resp => resp),
       catchError((err: HttpErrorResponse) => {

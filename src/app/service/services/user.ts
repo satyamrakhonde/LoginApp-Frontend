@@ -13,7 +13,7 @@ interface ServiceError {
   providedIn: 'root',
 })
 export class UserService {
-  private base = `${environment.apiBase}/users`;
+  private base = `${environment.apiBase}`;
 
   constructor(private http: HttpClient) {}
 
@@ -24,7 +24,7 @@ export class UserService {
   }
 
   login(payload: { username: string; password: string; }): Observable<User> {
-    const url = `${this.base}/login`;
+    const url = `${this.base}/auth/login`;
 
     return this.http.post<User>(url, payload).pipe(
       catchError((err: HttpErrorResponse) => {
