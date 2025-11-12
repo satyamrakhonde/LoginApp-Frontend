@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, ɵInternalFormsSharedModule } from "@angular/forms";
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators, ɵInternalFormsSharedModule } from "@angular/forms";
 import { User } from '../../models/user.model';
 import { error } from 'console';
 import { HttpErrorResponse } from '@angular/common/http';
@@ -8,7 +8,7 @@ import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-home',
-  imports: [ɵInternalFormsSharedModule, CommonModule],
+  imports: [ɵInternalFormsSharedModule, CommonModule, ReactiveFormsModule],
   templateUrl: './home.html',
   styleUrl: './home.css',
 })

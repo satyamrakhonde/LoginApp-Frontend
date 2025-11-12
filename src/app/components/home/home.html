@@ -2,7 +2,7 @@
 <div>
     <h2>Home</h2>
 
-    <form>
+    <form [formGroup]="searchForm" (ngSubmit)="onSearch()">
         <label>Username:</label>
         <input formControlName="username" type="text" />
         <button type="submit" [disabled]="loading">Search</button>

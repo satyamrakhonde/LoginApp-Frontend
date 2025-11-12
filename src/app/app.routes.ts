@@ -8,6 +8,4 @@ export const routes: Routes = [
     { path : 'create', component: CreateUser },
     { path : 'home', component: Home },
     { path : '**', redirectTo: '' }
-
-
 ];

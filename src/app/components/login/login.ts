@@ -27,6 +27,10 @@ export class Login {
 
   get f() { return this.form.controls; }
 
+  onRedirect() {
+    this.router.navigate(['/home']);
+  }
+
   onSubmit() {
     this.submitted = true;
     this.errorMessage = '';
@@ -41,7 +45,10 @@ export class Login {
     this.authService.login(username, password).subscribe({
       next: (res) => {
         // successful login -> navigate to home
-        this.router.navigate(['/home']);
+        console.log('Login successful:', res);
+        this.router.navigate(['/home'])
+          .then(success => {console.log('Navigation success:', success); })
+          .catch(err => {console.error('Navigation error:', err); });
       },
       error: (err) => {
         if (err.status === 404) this.errorMessage = 'User does not exists';

@@ -13,7 +13,8 @@ interface ServiceError {
   providedIn: 'root',
 })
 export class UserService {
-  private base = `${environment.apiBase}`;
+  // private base = `${environment.apiBase}`;
+  private base = 'http://localhost:8083/api/users';
 
   constructor(private http: HttpClient) {}
 
