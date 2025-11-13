@@ -57,6 +57,9 @@ export class CreateUser {
       } else if (this.f['password'].invalid) {
         if (this.f['password'].errors?.['required']) this.serverErrors = 'All fields are mandatory';
         else if (this.f['password'].errors?.['minlength']) this.serverErrors = 'Password should have 8 characters minimum';
+      } else if (this.f['email'].invalid) {
+        if (this.f['email'].errors?.['required']) this.serverErrors = 'All fields are mandatory';
+        else if (this.f['email'].errors?.['email']) this.serverErrors = 'Please enter a valid email address (must include @)';
       } else {
         this.serverErrors = 'All fields are mandatory';
       }

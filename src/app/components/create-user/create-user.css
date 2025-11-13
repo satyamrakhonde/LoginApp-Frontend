@@ -1,5 +1,21 @@
-.container { max-width: 640px; margin: 24px auto; }
-.form-row { margin-bottom: 12px; }
-.field-error { color: darkred; font-size: 0.9rem; }
-.error { color: red; margin: 8px 0; }
-button { margin-right: 8px; }
+.container { max-width: 640px; 
+    margin: 24px auto; 
+}
+
+.form-row { 
+    margin-bottom: 12px; 
+}
+
+.field-error {
+     color: darkred;
+    font-size: 0.9rem; 
+}
+
+.error { 
+    color: red; 
+    margin: 8px 0; 
+}
+
+button { 
+    margin-right: 8px; 
+    padding: 8px 16px;}

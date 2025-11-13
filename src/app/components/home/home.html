@@ -1,4 +1,4 @@
-<!-- <p>home works!</p> -->
+<!-- <p>home works!</p>
 <div>
     <h2>Home</h2>
 
@@ -20,4 +20,43 @@
         <div>Address: {{ foundUser?.address}}</div>
         <div>Phone: {{ foundUser?.phone}}</div>
     </div>
+</div> -->
+
+<div class="container card">
+  <h2>Search User</h2>
+
+  <form [formGroup]="searchForm" (ngSubmit)="onSearch()" novalidate>
+    <div class="form-row">
+      <label for="username">Username</label>
+      <div class="input-wrap">
+        <input id="username" formControlName="username" type="text" autocomplete="username" />
+        <div class="field-error" *ngIf="searchForm.get('username')?.touched && searchForm.get('username')?.invalid">
+          Username is required
+        </div>
+      </div>
+    </div>
+
+    <div class="actions">
+      <button type="submit" [disabled]="loading || searchForm.invalid" class="btn primary">
+        {{ loading ? 'Searching…' : 'Search' }}
+      </button>
+      <button type="button" class="btn ghost" (click)="searchForm.reset()">Reset</button>
+    </div>
+  </form>
+
+  <div *ngIf="message" class="error">{{ message }}</div>
+
+  <div *ngIf="foundUser" class="result">
+    <h3>User Details</h3>
+    <dl>
+      <div><dt>Username</dt><dd>{{ foundUser?.username }}</dd></div>
+      <div><dt>First name</dt><dd>{{ foundUser?.firstName }}</dd></div>
+      <div><dt>Last name</dt><dd>{{ foundUser?.lastName }}</dd></div>
+      <div><dt>Age</dt><dd>{{ foundUser?.age }}</dd></div>
+      <div><dt>Email</dt><dd>{{ foundUser?.email }}</dd></div>
+      <div><dt>Address</dt><dd>{{ foundUser?.address }}</dd></div>
+      <div><dt>Phone</dt><dd>{{ foundUser?.phone }}</dd></div>
+    </dl>
+  </div>
 </div>
+

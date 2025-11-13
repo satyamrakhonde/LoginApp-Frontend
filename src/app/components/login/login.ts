@@ -27,10 +27,6 @@ export class Login {
 
   get f() { return this.form.controls; }
 
-  onRedirect() {
-    this.router.navigate(['/home']);
-  }
-
   onSubmit() {
     this.submitted = true;
     this.errorMessage = '';

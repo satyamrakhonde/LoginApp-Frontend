@@ -1,3 +1,145 @@
-.container { max-width: 640px; margin: 24px auto; }
+/* .container { max-width: 640px; margin: 24px auto; }
 .error { color: red; margin-top: 8px; }
-.user-card { margin-top: 12px; border: 1px solid #ddd; padding: 12px; border-radius: 6px; }
+.user-card { margin-top: 12px; border: 1px solid #ddd; padding: 12px; border-radius: 6px; } */
+
+
+/* container + card */
+.container {
+  max-width: 640px;
+  margin: 32px auto;
+  padding: 20px;
+}
+.card {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(18, 25, 40, 0.06);
+  border: 1px solid rgba(18,25,40,0.04);
+}
+
+/* heading */
+h2 {
+  margin: 0 0 18px;
+  font-size: 1.5rem;
+  color: #1f2937;
+  text-align: center;
+}
+
+/* form rows */
+.form-row {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  margin-bottom: 14px;
+}
+
+/* label */
+.form-row > label {
+  width: 110px;             /* fixed label column width */
+  font-weight: 600;
+  color: #374151;
+  margin-top: 6px;
+}
+
+/* input wrap to allow errors below input */
+.input-wrap {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* input styling */
+input[type="text"],
+input[type="password"],
+textarea {
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color .15s ease, box-shadow .15s ease;
+}
+
+input:focus {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 4px rgba(99,102,241,0.08);
+}
+
+/* validation / errors */
+.field-error {
+  color: #b91c1c;
+  font-size: 0.85rem;
+  margin-top: 6px;
+}
+
+/* top-level message and results */
+.error {
+  color: #dc2626;
+  margin: 12px 0;
+  text-align: center;
+  font-weight: 600;
+}
+
+.result {
+  margin-top: 18px;
+  padding-top: 12px;
+  border-top: 1px dashed #e6e9ef;
+}
+
+.result h3 {
+  margin: 0 0 12px;
+  text-align: center;
+}
+
+/* definition list styling for results */
+dl { margin: 0; }
+dt { font-weight: 600; color: #374151; }
+dd { margin: 2px 0 10px 0; color: #374151; }
+
+/* actions / buttons */
+.actions {
+  display: flex;
+  justify-content: flex-start;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+/* button styles */
+.btn {
+  border: 0;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+
+.btn.primary {
+  background: #4f46e5;
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(79,70,229,0.18);
+}
+
+.btn.primary[disabled] {
+  background: #a5b4fc;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.btn.ghost {
+  background: transparent;
+  color: #374151;
+  border: 1px solid rgba(55,65,81,0.08);
+}
+
+/* responsive: stack label above input for small screens */
+@media (max-width: 520px) {
+  .form-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .form-row > label {
+    width: auto;
+    margin-bottom: 6px;
+  }
+  .actions { justify-content: center; }
+}

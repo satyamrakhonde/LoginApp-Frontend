@@ -37,6 +37,10 @@
         <div class="form-row">
             <label>Email</label>
             <input formControlName="email" type="email" />  
+            <div *ngIf="f['email'].touched && f['email'].invalid" class="field-error">
+                <div *ngIf="f['email'].errors?.['required']">Email is Required</div>
+                <div *ngIf="f['email'].errors?.['email']">Please enter a valid email address (must include @)</div>
+            </div>
         </div>
 
         <div class="form-row">

@@ -1,5 +1,12 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators, ɵInternalFormsSharedModule } from "@angular/forms";
+import {
+  FormBuilder,
+  FormGroup,
+  FormsModule,
+  ReactiveFormsModule,
+  Validators,
+  ɵInternalFormsSharedModule,
+} from '@angular/forms';
 import { User } from '../../models/user.model';
 import { error } from 'console';
 import { HttpErrorResponse } from '@angular/common/http';
@@ -13,7 +20,6 @@ import { CommonModule } from '@angular/common';
   styleUrl: './home.css',
 })
 export class Home {
-
   searchForm: FormGroup;
   foundUser: User | null = null;
   message: string | null = null;
@@ -21,7 +27,7 @@ export class Home {
 
   constructor(private fb: FormBuilder, private userSvc: UserService) {
     this.searchForm = this.fb.group({
-      username: ['', Validators.required]
+      username: ['', Validators.required],
     });
   }
 
@@ -30,10 +36,10 @@ export class Home {
     this.message = null;
 
     const username = this.searchForm.value.username?.trim();
-    if(!username) {
-      this.message = "Please enter a username to search.";
+    if (!username) {
+      this.message = 'Please enter a username to search.';
       return;
-    } 
+    }
 
     this.loading = true;
     // Simulate an API call
@@ -44,12 +50,12 @@ export class Home {
       },
       error: (err: HttpErrorResponse) => {
         this.loading = false;
-        if(err.status === 404) {
-          this.message = "User not found.";
+        if (err.status === 404) {
+          this.message = 'User not found.';
         } else {
-          this.message = "Server error occurred. Please try again later.";
+          this.message = 'Server error occurred. Please try again later.';
         }
-      }
-  });
-}
+      },
+    });
+  }
 }
