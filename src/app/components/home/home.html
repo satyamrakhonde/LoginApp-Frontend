@@ -21,6 +21,18 @@
         <div>Phone: {{ foundUser?.phone}}</div>
     </div>
 </div> -->
+<header class="topbar">
+  <div class="left">
+    <a routerLink="/home">Home</a>
+    <a routerLink="/incidents">Incidents</a>
+  </div>
+  <div class="right">
+    <span *ngIf="auth.getUser() as user">Hi, {{ user.username }}</span>
+    <button *ngIf="auth.hasToken()" (click)="logout()" style="margin-left:12px;">Logout</button>
+    <a *ngIf="!auth.hasToken()" routerLink="/login">Login</a>
+  </div>
+</header>
+<hr/>
 
 <div class="container card">
   <h2>Search User</h2>
@@ -60,3 +72,55 @@
   </div>
 </div>
 
+
+<div class = "container">
+    <h2>Incident</h2>
+    <form [formGroup]="form">
+        <table class="table" >
+            <thead>
+                <tr>
+                    <th>SNo</th>
+                    <th>Date</th>
+                    <th>Type</th>
+                    <th>Description</th>
+                    <th>Status</th>
+                    <th>Environment</th>
+                    <th>Application</th>
+                    <th>Closed Date</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody formArrayName="rows">
+                <tr *ngFor="let row of rows.controls; let i = index" [formGroupName]="i">
+                    <td>{{ i + 1 }}</td>
+                    <td><input type="date" formControlName="date" /></td>
+                    <td>
+                        <select formControlName="type">
+                            <option *ngFor="let t of types" [value]="t">{{ t }}</option>
+                        </select>
+                    </td>
+                    <td><input type="text" formControlName="description" /></td>
+                    <td>
+                        <select formControlName="status">
+                            <option *ngFor="let s of statuses" [value]="s">{{s}}</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select formControlName="environment">
+                            <option *ngFor="let e of envs" [value]="e">{{ e }}</option>
+                        </select>
+                    </td>
+                    <td><input type="text" formControlName="application" /></td>
+                    <td><input type="date" formControlName="closedDate" /></td>
+                    <td><button type="button" (click)="removeRow(i)">Remove</button></td>
+                </tr>
+            </tbody>
+        </table> 
+        
+        <div style="margin-top:8px;">
+            <button type="button" (click)="addRow()">Add New Row</button>
+            <button type="button" (click)="save()">Save</button>
+            <button type="button" (click)="cancel()">Cancel</button>
+        </div>
+    </form>
+</div>

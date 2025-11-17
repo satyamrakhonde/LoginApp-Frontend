@@ -131,6 +131,91 @@ dd { margin: 2px 0 10px 0; color: #374151; }
   border: 1px solid rgba(55,65,81,0.08);
 }
 
+/* Top bar container */
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+  background: #f8f9fa;
+  border-bottom: 1px solid #ddd;
+  border-radius: 6px;
+  margin-bottom: 12px;
+  font-family: Arial, sans-serif;
+}
+
+/* Left link group */
+.topbar .left a {
+  margin-right: 20px;
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.topbar .left a:hover {
+  color: #007bff;
+}
+
+/* Right user info + actions */
+.topbar .right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.topbar .right span {
+  font-weight: 500;
+  color: #444;
+}
+
+/* Logout button */
+.topbar button {
+  padding: 6px 12px;
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 14px;
+  border-radius: 4px;
+  transition: background 0.3s ease;
+}
+
+.topbar button:hover {
+  background-color: #c82333;
+}
+
+/* Login link */
+.topbar .right a {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.topbar .right a:hover {
+  text-decoration: underline;
+}
+
+/* Mobile Responsive */
+@media (max-width: 600px) {
+  .topbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 15px;
+  }
+
+  .topbar .left a {
+    margin-right: 10px;
+  }
+
+  .topbar .right {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+
 /* responsive: stack label above input for small screens */
 @media (max-width: 520px) {
   .form-row {
@@ -142,4 +227,5 @@ dd { margin: 2px 0 10px 0; color: #374151; }
     margin-bottom: 6px;
   }
   .actions { justify-content: center; }
+}
 }
